@@ -155,6 +155,11 @@ public class TelaCadCargo extends javax.swing.JFrame {
         });
 
         cadCargoBtnEditar.setText("Editar");
+        cadCargoBtnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadCargoBtnEditarActionPerformed(evt);
+            }
+        });
 
         cadCargoBtnCancelar.setText("Cancelar");
         cadCargoBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -319,6 +324,18 @@ public class TelaCadCargo extends javax.swing.JFrame {
     private void cadCargoBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadCargoBtnLimparActionPerformed
         limparCampos();
     }//GEN-LAST:event_cadCargoBtnLimparActionPerformed
+
+    private void cadCargoBtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadCargoBtnEditarActionPerformed
+        try{
+            int linha = cadCargoTabelaCargos.getSelectedRow();
+            cadCargoIdTxt.setText(cadCargoTabelaCargos.getValueAt(linha, 0).toString());
+            cadCargoSiglaTxt.setText(cadCargoTabelaCargos.getValueAt(linha, 1).toString());
+            cadCargoDescrTxt.setText(cadCargoTabelaCargos.getValueAt(linha, 2).toString());
+            cadCargoSalarioTxt.setText(cadCargoTabelaCargos.getValueAt(linha, 3).toString()); 
+        } catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "Selecione uma dos registros da tabela!");
+        }
+    }//GEN-LAST:event_cadCargoBtnEditarActionPerformed
 
     /**
      * @param args the command line arguments
